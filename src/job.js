@@ -15,8 +15,8 @@ export default function Job({job}) {
                         <Card.Subtitle className="text-muted md-3">
                             {new Date(job.created_at).toLocaleDateString()}
                         </Card.Subtitle>
-                        <Badge variant="secondary" className='mr-2 mb-2'>{job.type}</Badge>
-                        <Badge variant="secondary">{job.location}</Badge>
+                        <Badge variant="secondary" className='mr-2 px-2 py-2 my-2'>{job.type}</Badge>
+                        <Badge variant="secondary" className='px-2 py-2 my-2'>{job.location}</Badge>
                         <div style={{wordBreak:'break-all'}}>
                             <ReactMarkdown source={job.how_to_apply}>
                             </ReactMarkdown>
