@@ -2,7 +2,7 @@
   "name": "github_jobs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mrpandey1.github.io/github_jobs",
+  "homepage": "http://mrpandey1.github.io/github_jobs",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -15,12 +15,12 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
