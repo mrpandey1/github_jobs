@@ -1,19 +1,21 @@
-import React from 'react'
-import {Card,Badge,Button} from 'react-bootstrap';
+import React,{useState} from 'react'
+import {Card,Badge,Button,Collapse} from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
 export default function Job({job}) {
+    const[open,setOpen]=useState(false)
+ 
     return (
-        <Card>
+        <Card className="mb-3">
             <Card.Body>
                 <div className="d-flex justify-content-between">
                     <div>
-                        <Card.Title>
+                        <Card.Title className="mb-3">
                             {job.title} - <span className="text-muted font-weight-light">{job.company}</span>
                         </Card.Title>
-                        <Card.Subtitle className="text-muted md-2">
+                        <Card.Subtitle className="text-muted md-3">
                             {new Date(job.created_at).toLocaleDateString()}
                         </Card.Subtitle>
-                        <Badge variant="secondary" className='mr-2'>{job.type}</Badge>
+                        <Badge variant="secondary" className='mr-2 mb-2'>{job.type}</Badge>
                         <Badge variant="secondary">{job.location}</Badge>
                         <div style={{wordBreak:'break-all'}}>
                             <ReactMarkdown source={job.how_to_apply}>
@@ -23,12 +25,14 @@ export default function Job({job}) {
                     <img className="d-none d-md-block" height="50" alt={job.company} src={job.company_logo}/>
                 </div>
                 <Card.Text>
-                    <Button variant="primary">
-                        View Details
+                    <Button onClick={()=>setOpen(prevOpen=>!prevOpen)} variant="primary">
+                        {open?'Hide Details':'View Details'}
                     </Button>
+                    <Collapse in={open}>
                     <div className="mt-4">
                         <ReactMarkdown source={job.description}></ReactMarkdown>
                     </div> 
+                    </Collapse>
                 </Card.Text>
             </Card.Body>
         </Card>
